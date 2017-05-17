@@ -14,31 +14,31 @@ int main(){
   cin>>a>>b;
 
   adj_list[a].push_back(b);
-  adj_list[b].push_back(a);
   }
-
 
   cin>>s;
 
-  queue <int> q;
+  stack <int> st;
   vector <int> visited(n+1,0);
 
-  q.push(s);
+  st.push(s);
   visited[s] = 1;
+  cout<<s;
+  while(!st.empty()){
 
-  while(!q.empty()){
-
-    int p = q.front();
-    cout<<p;
-    q.pop();
+    int p = st.top();
 
     for(int j=0; j<adj_list[p].size(); j++){
       if(!visited[adj_list[p][j]]){
         visited[adj_list[p][j]] = 1;
-        q.push(adj_list[p][j]);
+        st.push(adj_list[p][j]);
+        cout<<adj_list[p][j];
+        break;
       }
     }
+      if(visited[adj_list[p][0]]==visited[adj_list[p][(adj_list[p].size()-1)]]){
+        int q = st.top();
+        st.pop();
+      }
   }
 }
-
-	
