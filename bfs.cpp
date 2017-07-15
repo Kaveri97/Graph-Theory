@@ -26,7 +26,7 @@ int main(){
   q.push(s);
   visited[s] = 1;
 
-  while(!q.empty()){
+  while((!q.empty())){
 
     int p = q.front();
     cout<<p;
